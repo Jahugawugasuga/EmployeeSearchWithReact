@@ -1,0 +1,14 @@
+.footer {
+   
+    display: block;
+    opacity: .8;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    background: navy;
+    color: white;
+    text-emphasis: none;
+    text-align: center;
+    font-size: 6pt;
+}
