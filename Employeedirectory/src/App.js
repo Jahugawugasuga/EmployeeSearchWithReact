@@ -1,5 +1,4 @@
 import React from "react";
-import Button from './components/Button'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Wrapper from './components/Wrapper'
@@ -12,7 +11,6 @@ function App() {
       <Header/>
       <Wrapper>
         <Home/>
-      <Button/>
       </Wrapper>
       <Footer />
     </div>

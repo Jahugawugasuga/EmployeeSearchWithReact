@@ -9,7 +9,6 @@ class Home extends Component {
     super(props)
     this.state = {
       employees: [],
-      searchResults: [],
       shown: []
     };
   }
@@ -29,18 +28,19 @@ class Home extends Component {
         }))
         let newState = { shown, employees };
         this.setState(newState);
+
       })
       .catch(err => {
         console.log(err)
       })
   }
       sortFirstName = () => {
-        var sortName = this.state.result.sort(
+        var sortName = this.state.shown.sort(
             sortTableItems
         )
         function sortTableItems(a, b) {
-            var nameA = a.name.first.toUpperCase();
-            var nameB = b.name.first.toUpperCase();
+            var nameA = a.firstName.toUpperCase();
+            var nameB = b.firstName.toUpperCase();
 
             let comparison = 0;
 
@@ -51,16 +51,16 @@ class Home extends Component {
             }
             return comparison;
         };
-        this.setState({ employees: sortName })
+        this.setState({ shown: sortName })
     };
 
     sortLastName = () => {
-        var sortName = this.state.result.sort(
+        var sortName = this.state.shown.sort(
             sortTableItems
         )
         function sortTableItems(a, b) {
-            var nameA = a.name.last.toUpperCase();
-            var nameB = b.name.last.toUpperCase();
+            var nameA = a.lastName.toUpperCase();
+            var nameB = b.lastName.toUpperCase();
 
             let comparison = 0;
 
@@ -71,7 +71,7 @@ class Home extends Component {
             }
             return comparison;
         };
-        this.setState({ employees: sortName })
+        this.setState({ shown: sortName })
     };
 
   componentDidMount() {
@@ -112,8 +112,12 @@ class Home extends Component {
             handleInputChange={this.handleInputChange}
           
           />
-          <Table employees={this.state.shown}>
-          </Table>
+          <Table 
+          employees={this.state.shown}
+          sortFirstName= {this.sortFirstName}
+          sortLastName = {this.sortLastName}
+          />
+          
         </Container>
       </div>
     );
